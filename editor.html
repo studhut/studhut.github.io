@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Level Editor</title>
+
+    <link href="style.css" rel="stylesheet">
+</head>
+<body>
+    <script src="main.js"></script>
+
+    <canvas class="center" width="320" height="240"></canvas>
+
+    <div class="left">
+        <div class="container">
+            <p>Hello,</p>
+        </div>
+    </div>
+
+    <div class="right">
+        <div class="container">
+            <p>World!</p>
+        </div>
+    </div>
+
+    <div class="toolbar">
+        <div class="container">
+            <button onclick="window.location = 'index.html'">Home</button>
+            <div class="dropdown">
+                <button class="dropdown">File</button>
+                <div class="dropdown-content">
+                    <button onclick="save_file_dialog.open();">Open</button>
+                    <button>Save</button>
+                    <button>Import</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="loading" id="loading-screen"></div>
+</body>
+</html>

@@ -1,0 +1,173 @@
+:root {
+    --glob-padding: 10px;
+    --glob-border-radius: 10px;
+    --canvas-css-width: 50%;
+    --canvas-width: 320px;
+    --toolbar-height: 20px;
+
+    --background-color: #202020;
+    --accent-color: #2A2A2A;
+    --tertiary-color: #303030;
+}
+
+body {
+    background-color: var(--background-color);
+
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+}
+
+table {
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: calc(var(--glob-padding) / 1.5);
+    top: calc(var(--glob-padding) * 4);
+    border-spacing: var(--glob-padding);
+
+    /* padding: var(--glob-padding); */
+}
+
+button {
+    border: none;
+    width: 50px;
+    padding: calc(var(--glob-padding) / 2);
+    background-color: var(--background-color);
+    color: white;
+
+    border-radius: var(--glob-border-radius);
+}
+
+button.tiny {
+    display: block;
+    position: absolute;
+    width: 30px;
+    margin: var(--glob-padding);
+
+    background-color: var(--accent-color);
+}
+
+button.menu {
+    background-color: var(--accent-color);
+
+    width: 64px;
+}
+
+button:hover {
+    background-color: var(--tertiary-color);
+}
+
+button:active {
+    background-color: var(--background-color);
+}
+
+div.container {
+    background-color: var(--accent-color);
+    position: absolute;
+    left: 0%;
+    top: 0%;
+
+    width: 100%;
+    height: 100%;
+
+    padding: var(--glob-padding);
+
+    border-radius: var(--glob-border-radius);
+}
+
+div.left {
+    display: block;
+    position: absolute;
+    left: var(--glob-padding);
+    top: calc(var(--glob-padding) * 2 + var(--toolbar-height) * 2);
+
+
+    --width: calc(
+        50% + (var(--glob-padding) * 4) + (var(--canvas-css-width) / 2)
+    );
+
+    --height: calc(
+        100% - var(--glob-padding) * 5 - var(--toolbar-height) * 2
+    );
+
+    right: var(--width);
+    height: var(--height);
+}
+
+div.right {
+    display: block;
+    position: absolute;
+    right: calc(var(--glob-padding) * 3);
+    top: calc(var(--glob-padding) * 2 + var(--toolbar-height) * 2);
+
+
+    --width: calc(
+        50% + (var(--glob-padding) * 2) + (var(--canvas-css-width) / 2)
+    );
+
+    --height: calc(
+        100% - var(--glob-padding) * 5 - var(--toolbar-height) * 2
+    );
+
+    left: var(--width);
+    height: var(--height);
+}
+
+div.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+div.dropdown-content {
+    display: none;
+    position: absolute;
+
+    background-color: var(--background-color);
+    width: 100%;
+    padding: var(--glob-padding);
+    border-radius: var(--glob-border-radius);
+}
+
+div.dropdown:hover div.dropdown-content {display: block;}
+
+div.toolbar {
+    display: block;
+    position: absolute;
+
+    top: var(--glob-padding);
+    left: var(--glob-padding);
+    right: calc(0% + var(--glob-padding) * 3);
+    height: var(--toolbar-height);
+}
+
+div.loading {
+    display: none;
+    position: absolute;
+    left: 0%;
+    right: 0%;
+    top: 0%;
+    bottom: 0%;
+
+    background-color: #000000AA;
+}
+
+canvas {
+    background-color: #000000;
+
+    border-radius: var(--glob-border-radius);
+}
+
+canvas.center {
+    margin: auto;
+    padding: 0%;
+    position: absolute;
+    display: block;
+
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+
+    width: var(--canvas-css-width);
+    max-height: 80%;
+}
