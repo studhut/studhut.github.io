@@ -1,5 +1,8 @@
+import * as Hex from "./hex-utils.js";
+import * as Header from "./header.js";
+
 class FileDialog {
-    constructor(id="file-dialog") {
+    constructor(id = "file-dialog") {
         this.id = id;
 
         this.html_element = document.createElement("input");
@@ -18,40 +21,46 @@ class FileDialog {
         if (loading_screen) {
             loading_screen.style.display = "block";
         } else {
-            console.warn("No loading screen found.")
+            console.warn("No loading screen found.");
         }
-        
+
         var file = e.target.files[0];
-        if (!file) {console.log("No file found"); return;}
+        if (!file) {
+            console.log("No file found");
+            return;
+        }
 
         console.log(file);
 
         var reader = new FileReader();
-        reader.onload = function(e) {
+        reader.readAsText(file);
+
+        reader.onload = function (e) {
             var contents = e.target.result;
 
-            console.log(readAsHex(contents));
+            var content_array = Hex.strToInt(contents);
 
-            if (loading_screen) {loading_screen.style.display = "none";}
+            if (loading_screen) {
+                loading_screen.style.display = "none";
+            }
+
+            // Determine scene format (TCS or LIJ)
+            let leading_four = Hex.ASCIIFromRange(content_array, 0, 3);
+
+            Header.checkNU20Header(leading_four);
+            console.log(Header.SCENE_FORMAT);
         };
-
-        reader.readAsText(file);
     }
 }
 
-function readAsHex(str) {
-    let hex = [];
-    for (let i = 0; i < str.length; i++) {
-        const byte = str.charCodeAt(i);
+let open_file_dialog = new FileDialog("open-dialog");
 
-        hex.push(byte);
-    }
-
-    return hex;
-}
-
-let save_file_dialog = new FileDialog("save-dialog");
-
-save_file_dialog.html_element.addEventListener("input", function(e) {
-    save_file_dialog.read(e);
+open_file_dialog.html_element.addEventListener("input", function (e) {
+    open_file_dialog.read(e);
 });
+
+let open_button = document.getElementById("open-button");
+
+open_button.onclick = function () {
+    open_file_dialog.open();
+};
