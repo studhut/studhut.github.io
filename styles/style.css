@@ -3,6 +3,9 @@
     --glob-border-radius: 10px;
     --canvas-css-width: 50%;
     --canvas-width: 320px;
+    --canvas-height: 240px;
+    --canvas-aspect: calc(var(--canvas-width) / var(--canvas-height));
+    --canvas-disp-height: calc(var(--canvas-css-width) * var(--canvas-aspect));
     --toolbar-height: 40px;
 
     --background-color: #202020;

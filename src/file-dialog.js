@@ -22,7 +22,7 @@ export class FileDialog {
 
     async load(event) {
         var file = event.target.files[0];
-        console.log(file);
+        console.log("Loading Level:", file.name);
 
         var scene_reader = new SceneReader(file);
 
