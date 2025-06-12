@@ -3,9 +3,11 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Level Editor</title>
+        <title>StudHut Editor</title>
 
         <link href="../styles/style.css" rel="stylesheet" />
+        <link href="../styles/editor-style.css" rel="stylesheet" />
+        <link href="../favicon.png" rel="icon">
     </head>
 
     <body>
@@ -24,18 +26,27 @@
                 <p>World!</p>
             </div>
         </div>
-
+        
         <div class="toolbar">
             <div class="container">
-                <button onclick="window.location = '../index.html'">
-                    Home
+                <button class="home" onclick="window.location='../index.html'">
+                    <img src="../favicon.png" width="32">
                 </button>
                 <div class="dropdown">
-                    <button class="dropdown">File</button>
+                    <button class="dropdown">
+                        <p>File</p>
+                    </button>
                     <div class="dropdown-content">
                         <button id="open-button">Open</button>
-                        <button>Save</button>
-                        <button>Import</button>
+                        <button id="save-button">Save</button>
+                        <button id="import-button">Import</button>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <button class="dropdown">
+                        <p>View</p>
+                    </button>
+                    <div class="dropdown-content">
                     </div>
                 </div>
             </div>
