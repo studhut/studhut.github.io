@@ -7,13 +7,28 @@
 
         <link href="../styles/style.css" rel="stylesheet" />
         <link href="../styles/editor-style.css" rel="stylesheet" />
-        <link href="../favicon.png" rel="icon">
+        <link href="../favicon.png" rel="icon" />
+
+        <script type="importmap">
+            {
+                "imports": {
+                    "three": "https://cdn.jsdelivr.net/npm/three@0.177.0/build/three.module.js",
+                    "three/addons/": "https://cdn.jsdelivr.net/npm/three@<version>/examples/jsm/"
+                }
+            }
+        </script>
     </head>
 
     <body>
         <script src="../src/main.js" type="module"></script>
+        <!-- <script type="module" src="../src/canvas.js"></script> -->
 
-        <canvas class="center" width="320" height="240"></canvas>
+        <canvas
+            id="render-window"
+            class="center"
+            width="320"
+            height="240"
+        ></canvas>
 
         <div class="left">
             <div class="container">
@@ -26,11 +41,11 @@
                 <p>World!</p>
             </div>
         </div>
-        
+
         <div class="toolbar">
             <div class="container">
                 <button class="home" onclick="window.location='../index.html'">
-                    <img src="../favicon.png" width="32">
+                    <img class="icon" src="../favicon.png" width="32" />
                 </button>
                 <div class="dropdown">
                     <button class="dropdown">
@@ -42,13 +57,12 @@
                         <button id="import-button">Import</button>
                     </div>
                 </div>
-                <div class="dropdown">
+                <!-- <div class="dropdown">
                     <button class="dropdown">
                         <p>View</p>
                     </button>
-                    <div class="dropdown-content">
-                    </div>
-                </div>
+                    <div class="dropdown-content"></div>
+                </div> -->
             </div>
         </div>
     </body>
