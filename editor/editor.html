@@ -1,45 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Level Editor</title>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Level Editor</title>
 
-    <link href="../styles/style.css" rel="stylesheet">
-</head>
-<body>
-    <script src="../src/main.js"></script>
+        <link href="../styles/style.css" rel="stylesheet" />
+    </head>
 
-    <canvas class="center" width="320" height="240"></canvas>
+    <body>
+        <script src="../src/main.js" type="module"></script>
 
-    <div class="left">
-        <div class="container">
-            <p>Hello,</p>
+        <canvas class="center" width="320" height="240"></canvas>
+
+        <div class="left">
+            <div class="container">
+                <p>Hello,</p>
+            </div>
         </div>
-    </div>
 
-    <div class="right">
-        <div class="container">
-            <p>World!</p>
+        <div class="right">
+            <div class="container">
+                <p>World!</p>
+            </div>
         </div>
-    </div>
 
-    <div class="toolbar">
-        <div class="container">
-            <button onclick="window.location = '../index.html'">Home</button>
-            <div class="dropdown">
-                <button class="dropdown">File</button>
-                <div class="dropdown-content">
-                    <button onclick="save_file_dialog.open();">Open</button>
-                    <button>Save</button>
-                    <button>Import</button>
+        <div class="toolbar">
+            <div class="container">
+                <button onclick="window.location = '../index.html'">
+                    Home
+                </button>
+                <div class="dropdown">
+                    <button class="dropdown">File</button>
+                    <div class="dropdown-content">
+                        <button id="open-button">Open</button>
+                        <button>Save</button>
+                        <button>Import</button>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <div class="loading" id="loading-screen">
-        <p>Loading...</p>
-    </div>
-</body>
+        <div class="loading" id="loading-screen">
+            <p>Loading...</p>
+        </div>
+    </body>
 </html>
