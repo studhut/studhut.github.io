@@ -8,6 +8,7 @@ export class SceneReader {
         this.CHUNK_SIZE = 8 * 1024; // 8KB
 
         this.header_loc = -1;
+        this.buffer_pos = -1; // position where the file is read from
     }
 
     readSlice(start, end, log = false) {
@@ -22,38 +23,20 @@ export class SceneReader {
     }
 
     async getSceneFormat() {
-        var header_slice = await this.readSlice(0, 3);
-        var header = await header_slice.slice.text();
+        const header_slice = await this.readSlice(0, 3);
+        const header = Hex.arrToHex(new Uint8Array(await header_slice.slice.arrayBuffer()).reverse());
+        const header_int = parseInt(header, 16);
+        const header_string = Hex.hexToAscii(Hex.toLittle(header));
 
-        if (header == "NU20") {
+        if (header_string == "NU20") { // LIJ1/LB1
             this.scene_format = "LIJ";
             this.header_loc = 0;
-        } else {
-            await this.findSceneHeader();
+        } else { // TCS
+            this.scene_format = "TCS";
+            this.header_loc = header_int + 4;
         }
 
         console.log("Scene Format:", this.scene_format);
-        console.log("Header Location:", Hex.intToHex(this.header_loc));
-    }
-
-    async findSceneHeader() {
-        var offset = 0;
-
-        while (offset < this.file.size) {
-            offset += this.CHUNK_SIZE;
-
-            var chunk_slice = await this.readSlice(
-                offset,
-                offset + this.CHUNK_SIZE
-            );
-            var chunk = await chunk_slice.slice.text();
-
-            if (chunk.includes("NU20")) {
-                this.header_loc = chunk.indexOf("NU20") + offset;
-                this.scene_format = "TCS";
-
-                return;
-            }
-        }
+        console.log("NU20 Location:", Hex.intToHex(this.header_loc, 4, true));
     }
 }
