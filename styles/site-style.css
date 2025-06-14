@@ -37,3 +37,7 @@ button:hover {
     border-style: solid;
     scale: 105%;
 }
+
+img.icon {
+    width: 25%;
+}
