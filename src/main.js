@@ -14,15 +14,6 @@ open_button.onclick = function() {
 
 export const canvas = new Canvas.CanvasRenderer("render-window");
 
-const box = new Canvas.Box(1, 1, 1, 0xffffff);
-canvas.add(box.mesh);
-
-const light = new Canvas.HemisphereLight(0xffffff, 0x000000, 5);
-canvas.add(light.light);
-
 canvas.renderer.setAnimationLoop(function() {
-    box.mesh.rotation.x += 0.01;
-    box.mesh.rotation.y += 0.01;
-
     canvas.render();
 });
