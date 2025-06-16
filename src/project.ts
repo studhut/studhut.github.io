@@ -1,5 +1,5 @@
 export class Project {
-    public project_format: Object
+    public project_format: Object;
 
     constructor() {
         this.project_format = FORMATS.LIJ1;

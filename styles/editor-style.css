@@ -137,6 +137,21 @@ div.toolbar {
     height: var(--toolbar-height);
 }
 
+div.status {
+    display: none;
+    position: absolute;
+    left: 0%;
+    top: 0%;
+    background-color: #00000075;
+    width: 100%;
+    height: 100%;
+
+    align-items: center;
+    justify-content: center;
+
+    font-size: 100px;
+}
+
 canvas {
     background-color: #000000;
 

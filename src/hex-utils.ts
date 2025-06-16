@@ -1,5 +1,5 @@
-export const parseUint8Array = (
-    array: Uint8Array | Uint16Array | Uint32Array,
+export const parseInt8Array = (
+    array: Int8Array,
     offset: number = 0
 ) => {
     const view: DataView = new DataView(
@@ -7,7 +7,7 @@ export const parseUint8Array = (
         array.byteOffset,
         array.byteLength
     );
-    return view.getUint32(offset, true);
+    return view.getInt32(offset, true);
 };
 
 export const toHex = (num: number) => {
