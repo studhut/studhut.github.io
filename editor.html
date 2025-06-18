@@ -21,6 +21,7 @@
 
     <body>
         <script src="out/js/main.js" type="module"></script>
+        <script src="out/js/themes/themes-window.js" type="module"></script>
         <!-- <script type="module" src="../src/canvas.js"></script> -->
 
         <canvas
@@ -57,16 +58,23 @@
                         <button id="import-button">Import</button>
                     </div>
                 </div>
-                <!-- <div class="dropdown">
+                <div class="dropdown">
                     <button class="dropdown">
                         <p>View</p>
                     </button>
-                    <div class="dropdown-content"></div>
-                </div> -->
+                    <div class="dropdown-content">
+                        <button class="themes-button">Themes</button>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="status" id="status-screen">
-            Loading Text
+        <div class="status" id="status-screen"></div>
+
+        <div class="popup" id="themes-window">
+            <h2>Themes</h2>
+            <button class="exit" id="themes-exit">X</button>
+            <table id="themes-table">
+            </table>
         </div>
     </body>
 </html>

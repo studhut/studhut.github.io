@@ -15,7 +15,7 @@ export class SceneReader {
     }
     async loadScene() {
         await this.getSceneFormat();
-        await this.loadBlocks();
+        await this.loadPointers();
     }
     async getChunk(start, end) {
         var chunk = await this.file
@@ -46,8 +46,7 @@ export class SceneReader {
         console.log("Project Format:", this.project.project_format);
         console.log("NU20 Location:", Hex.toHex(this.nu20_loc));
     }
-    async loadBlocks() {
-        Status.showStatusScreen("Loading Pointers...");
+    async loadPointers() {
         this.buffer_pos = this.nu20_loc + 0x18;
         console.log("NU20 + 0x18:", Hex.toHex(this.buffer_pos));
         this.pntr_loc = this.buffer_pos + (await this.getInt32());
@@ -62,9 +61,9 @@ export class SceneReader {
         else {
             this.PARSE_PNTR = false;
         }
-        Status.hideStatusScreen();
     }
     async parsePNTRs() {
+        Status.showStatusScreen("Loading pointers...");
         var num_pntrs = await this.getInt32();
         console.log("# of PNTRs:", num_pntrs);
         for (var i = 0; i < num_pntrs; i++) {
@@ -81,6 +80,13 @@ export class SceneReader {
             }
             this.buffer_pos = pos + 4;
             console.log(`New Buffer Pos[${i}]:`, Hex.toHex(this.buffer_pos));
+        }
+        Status.hideStatusScreen();
+    }
+    async loadBlocks() {
+        this.buffer_pos = this.header_loc - 8;
+        this.buffer_pos = this.nu20_loc + 0x20;
+        while (this.file.size - this.buffer_pos > 0) {
         }
     }
 }

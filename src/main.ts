@@ -12,8 +12,8 @@ open_button.onclick = function() {
     file_dialog.open();
 }
 
-export const canvas: Canvas.CanvasRenderer = new Canvas.CanvasRenderer("render-window");
+// export const canvas: Canvas.CanvasRenderer = new Canvas.CanvasRenderer("render-window");
 
-canvas.renderer.setAnimationLoop(function() {
-    canvas.render();
-});
+// canvas.renderer.setAnimationLoop(function() {
+//     canvas.render();
+// });

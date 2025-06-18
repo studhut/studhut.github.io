@@ -8,23 +8,26 @@
     --canvas-disp-height: calc(var(--canvas-css-width) * var(--canvas-aspect));
     --toolbar-height: 40px;
 
-    --background-color: #202020;
-    --accent-color: #2a2a2a;
-    --tertiary-color: #303030;
+    --primary-color: #fafafa;
+    --secondary-color: #e4e5f1;
+    --tertiary-color: #d2d3db;
+    --font-color: #484b6a;
 }
 
 body {
-    background-color: var(--background-color);
+    background-color: var(--primary-color);
 
     font-family: Arial, Helvetica, sans-serif;
     color: white;
+
+    color: var(--font-color);
 }
 
 button {
     border: none;
     width: 50px;
     padding: calc(var(--glob-padding) / 2);
-    background-color: var(--background-color);
+    background-color: var(--primary-color);
     color: white;
 
     border-radius: var(--glob-border-radius);
