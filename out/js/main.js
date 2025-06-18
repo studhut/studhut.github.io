@@ -4,10 +4,32 @@ if (!open_button) {
     console.warn("No open button found.");
 }
 open_button.onclick = function () {
-    var file_dialog = new FileDialog(".gsc");
+    var file_dialog = new FileDialog(".shproj");
     file_dialog.open();
 };
-// export const canvas: Canvas.CanvasRenderer = new Canvas.CanvasRenderer("render-window");
-// canvas.renderer.setAnimationLoop(function() {
-//     canvas.render();
-// });
+document.addEventListener("keydown", (e) => {
+    if ((e.ctrlKey && e.key == "o") || e.key == "O") {
+        e.preventDefault();
+        console.log("Open project");
+        var file_dialog = new FileDialog(".shproj");
+        file_dialog.open();
+    }
+});
+const import_button = document.getElementById("import-button");
+if (!import_button) {
+    console.warn("No open button found.");
+}
+import_button.onclick = function () {
+    var file_dialog = new FileDialog(".gsc");
+    file_dialog.html_element.oninput = file_dialog.load;
+    file_dialog.open();
+};
+document.addEventListener("keydown", (e) => {
+    if ((e.ctrlKey && e.key == "i") || e.key == "I") {
+        e.preventDefault();
+        console.log("Import level");
+        var file_dialog = new FileDialog(".gsc");
+        file_dialog.html_element.oninput = file_dialog.load;
+        file_dialog.open();
+    }
+});

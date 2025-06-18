@@ -1,19 +1,53 @@
 import { FileDialog } from "./file-dialog.js";
-import * as Canvas from "./canvas.js";
 
-const open_button: HTMLButtonElement = document.getElementById("open-button") as HTMLButtonElement;
+const open_button: HTMLButtonElement = document.getElementById(
+    "open-button"
+) as HTMLButtonElement;
 
 if (!open_button) {
     console.warn("No open button found.");
 }
 
-open_button.onclick = function() {
-    var file_dialog: FileDialog = new FileDialog(".gsc");
+open_button.onclick = function () {
+    var file_dialog: FileDialog = new FileDialog(".shproj");
     file_dialog.open();
+};
+
+document.addEventListener("keydown", (e) => {
+    if ((e.ctrlKey && e.key == "o") || e.key == "O") {
+        e.preventDefault();
+
+        console.log("Open project");
+
+        var file_dialog: FileDialog = new FileDialog(".shproj");
+        file_dialog.open();
+    }
+});
+
+const import_button: HTMLButtonElement = document.getElementById(
+    "import-button"
+) as HTMLButtonElement;
+
+if (!import_button) {
+    console.warn("No open button found.");
 }
 
-// export const canvas: Canvas.CanvasRenderer = new Canvas.CanvasRenderer("render-window");
+import_button.onclick = function () {
+    var file_dialog: FileDialog = new FileDialog(".gsc");
+    file_dialog.html_element.oninput = file_dialog.load;
+    
+    file_dialog.open();
+};
 
-// canvas.renderer.setAnimationLoop(function() {
-//     canvas.render();
-// });
+document.addEventListener("keydown", (e) => {
+    if ((e.ctrlKey && e.key == "i") || e.key == "I") {
+        e.preventDefault();
+
+        console.log("Import level");
+
+        var file_dialog: FileDialog = new FileDialog(".gsc");
+        file_dialog.html_element.oninput = file_dialog.load;
+        
+        file_dialog.open();
+    }
+});

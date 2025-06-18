@@ -1,6 +1,6 @@
 import { THEMES } from "./themes.js";
 
-const DEFAULT_THEME = THEMES[0];
+const DEFAULT_THEME = THEMES[4];
 
 class ThemeButton {
     public theme;

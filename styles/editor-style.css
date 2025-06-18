@@ -14,7 +14,7 @@ button {
     position: relative;
 
     min-width: calc(var(--toolbar-height) * 1.5);
-    width: auto;
+    width: max-content;
     min-height: var(--toolbar-height);
     max-height: var(--toolbar-height);
 
@@ -39,6 +39,10 @@ button {
         color: var(--font-color);
     }
 }
+
+/* button.dropdown-content {
+    width: 100%;
+} */
 
 button.home {
     background-color: transparent;
@@ -121,7 +125,7 @@ div.dropdown-content {
     position: absolute;
 
     background-color: var(--primary-color);
-    width: 100%;
+    width: auto;
     padding: var(--glob-padding);
     border-radius: var(--glob-border-radius);
 }

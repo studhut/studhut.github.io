@@ -11,8 +11,6 @@ export class FileDialog {
         this.html_element = document.createElement("input");
         this.html_element.accept = this.accept;
         this.html_element.type = "file";
-
-        this.html_element.oninput = this.load;
     }
 
     open() {
