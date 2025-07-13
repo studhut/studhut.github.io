@@ -8,10 +8,10 @@
     --canvas-disp-height: calc(var(--canvas-css-width) * var(--canvas-aspect));
     --toolbar-height: 40px;
 
-    --primary-color: #fafafa;
-    --secondary-color: #e4e5f1;
-    --tertiary-color: #d2d3db;
-    --font-color: #484b6a;
+    --primary-color: #24273a;
+    --secondary-color: #363a4f;
+    --tertiary-color: #494d64;
+    --font-color: #cad3f5;
 }
 
 body {
