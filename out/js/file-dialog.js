@@ -1,5 +1,6 @@
 import { SceneReader } from "./scene-reading.js";
 import * as Status from "./status-screen.js";
+export var scene_reader = null;
 export class FileDialog {
     constructor(accept) {
         this.accept = accept;
@@ -14,7 +15,7 @@ export class FileDialog {
         Status.showStatusScreen("Loading file...");
         var file = event.target.files[0];
         console.log("Loading Level:", file.name);
-        var scene_reader = new SceneReader(file);
+        scene_reader = new SceneReader(file);
         Status.hideStatusScreen();
         scene_reader.loadScene();
     }

@@ -1,6 +1,8 @@
 import { SceneReader } from "./scene-reading.js";
 import * as Status from "./status-screen.js";
 
+export var scene_reader: SceneReader | null = null;
+
 export class FileDialog {
     public accept: string;
     public html_element: HTMLInputElement;
@@ -22,7 +24,7 @@ export class FileDialog {
         var file = event.target.files[0];
         console.log("Loading Level:", file.name);
 
-        var scene_reader: SceneReader = new SceneReader(file);
+        scene_reader = new SceneReader(file);
 
         Status.hideStatusScreen();
         scene_reader.loadScene();

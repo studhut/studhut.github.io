@@ -1,3 +1,4 @@
+// HUGE credit to everybody who worked on Brickbench
 import { FileDialog } from "./file-dialog.js";
 const open_button = document.getElementById("open-button");
 if (!open_button) {
